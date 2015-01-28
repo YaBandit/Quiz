@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Button;
 
+import org.xmlpull.v1.XmlPullParser;
+
 import java.util.HashSet;
 
 
@@ -32,12 +34,11 @@ public class LandingPage extends ActionBarActivity
 
     private Button answer1, answer2, answer3, answer4;
     private HashSet<Button> buttonList = new HashSet<Button>();
+    private Startup startup = Startup.getInstance();
 
     public LandingPage(){
-        buttonList.add(answer1);
-        buttonList.add(answer2);
-        buttonList.add(answer3);
-        buttonList.add(answer4);
+        XmlPullParser xmlPullParser = getXMLFiles();
+        startup.Initialise(xmlPullParser);
     }
 
     @Override
@@ -54,11 +55,23 @@ public class LandingPage extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
+        initialiseButtons();
+    }
+
+    public void initialiseButtons(){
         answer1 = (Button) findViewById(R.id.answer1);
         answer2 = (Button) findViewById(R.id.answer2);
         answer3 = (Button) findViewById(R.id.answer3);
         answer4 = (Button) findViewById(R.id.answer4);
+        buttonList.add(answer1);
+        buttonList.add(answer2);
+        buttonList.add(answer3);
+        buttonList.add(answer4);
+    }
 
+    public XmlPullParser getXMLFiles(){
+        XmlPullParser xmlPullParser = getResources().getXml(R.xml.easyquestions);
+        return xmlPullParser;
     }
 
     private void setAnswerButtonOnClickListener(Button button){
