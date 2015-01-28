@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EasyQuestions>
+        <Question id="1">
+            <QuestionText>What company did Bill Gates Found</QuestionText>
+            <Answer1>Microsoft</Answer1>
+            <Answer2>Apple</Answer2>
+            <Answer3>Nokia</Answer3>
+            <Answer4>Space X</Answer4>
+            <CorrectAnswer>1</CorrectAnswer>
+            <Category1>Business</Category1>
+            <Category2>Technology</Category2>
+        </Question>
+    </EasyQuestions>
+</PreferenceScreen>
